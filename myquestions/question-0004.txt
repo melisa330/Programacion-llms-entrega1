@@ -1,0 +1,19 @@
+Recibes una matriz de características numéricas X (numpy.ndarray) y un vector objetivo numérico y (numpy.ndarray).
+
+Debes escribir una función llamada evaluar_svr_regresion(X, y, test_size=0.25, random_state=42) que realice lo siguiente:
+
+1. Divida los datos en entrenamiento y prueba usando train_test_split de sklearn.model_selection.
+2. Escale las características de entrenamiento y prueba usando StandardScaler de sklearn.preprocessing.
+3. Entrene un modelo SVR de sklearn.svm con kernel="rbf".
+4. Genere predicciones sobre el conjunto de prueba.
+5. Calcule las siguientes métricas sobre el conjunto de prueba:
+   - r2
+   - mae
+   - rmse
+6. Devuelva un diccionario con las claves:
+   "r2", "mae", "rmse"
+
+Notas:
+- Debes usar únicamente los datos de entrenamiento para ajustar el StandardScaler.
+- rmse debe calcularse como la raíz cuadrada del error cuadrático medio.
+- La función debe retornar floats nativos de Python.

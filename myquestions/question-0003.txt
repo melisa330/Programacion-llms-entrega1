@@ -1,0 +1,22 @@
+Recibes una matriz de características numéricas X (numpy.ndarray) y un vector binario y (numpy.ndarray).
+
+Debes escribir una función llamada evaluar_adaboost_binario(X, y, test_size=0.25, random_state=42) que realice lo siguiente:
+
+1. Divida los datos en entrenamiento y prueba usando train_test_split de sklearn.model_selection.
+   La división debe conservar la proporción de clases usando stratify=y.
+2. Entrene un modelo AdaBoostClassifier de sklearn.ensemble con:
+   - n_estimators=50
+   - random_state igual al argumento random_state
+3. Genere predicciones sobre el conjunto de prueba.
+4. Calcule las siguientes métricas sobre el conjunto de prueba:
+   - accuracy
+   - precision
+   - recall
+   - roc_auc
+5. Devuelva un diccionario con las claves:
+   "accuracy", "precision", "recall", "roc_auc"
+
+Notas:
+- Para precision y recall debes usar zero_division=0.
+- Para roc_auc debes usar las probabilidades estimadas de la clase positiva.
+- La función debe retornar floats nativos de Python.

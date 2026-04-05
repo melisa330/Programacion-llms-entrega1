@@ -1,0 +1,17 @@
+Recibes un DataFrame de pandas con registros diarios de precipitación. El DataFrame tiene las columnas "estacion", "fecha" y "lluvia_mm".
+
+Debes escribir una función llamada calcular_racha_maxima_lluvia(df) que realice lo siguiente:
+
+1. Convierta la columna "fecha" a tipo datetime.
+2. Ordene los datos por "estacion" y "fecha" de forma ascendente.
+3. Para cada estación, identifique los días con lluvia estrictamente mayor que 0.
+4. Para cada estación, calcule la racha máxima de días consecutivos con lluvia estrictamente mayor que 0.
+   Dos registros pertenecen a días consecutivos si la diferencia entre sus fechas es exactamente de 1 día.
+5. Devuelva un nuevo DataFrame con las columnas:
+   ["estacion", "racha_maxima_lluvia"]
+6. El resultado debe quedar ordenado por:
+   - "racha_maxima_lluvia" de mayor a menor
+   - "estacion" de forma ascendente
+7. El índice debe reiniciarse.
+
+La función debe retornar exclusivamente ese DataFrame final.
