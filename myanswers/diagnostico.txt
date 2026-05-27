@@ -1,0 +1,36 @@
+Pregunta 0331
+
+En el generador de casos de uso, la última línea retorna:
+
+return {"df": df, "target_col": "target"}, "target"
+
+El segundo elemento retornado corresponde únicamente al string "target" y no al resultado esperado descrito en el enunciado (diccionario con "accuracy" y "confusion_matrix").
+
+Por esta razón, aunque la implementación de answer-0331.py retorna correctamente un diccionario con las métricas solicitadas, el validador podría clasificar la respuesta como incorrecta debido a un problema en el generador y no en la solución implementada.
+
+En answer-0331.py la función classify construye correctamente:
+- OneHotEncoder para variables categóricas,
+- StandardScaler para variables numéricas,
+- ColumnTransformer,
+- LogisticRegression,
+- y retorna un diccionario con "accuracy" y "confusion_matrix".
+
+
+Pregunta 0229
+
+En el generador de casos de uso, la salida esperada se define como:
+
+output = (model, int(coef_ceros), float(mae))
+
+donde el primer elemento es un objeto sklearn.linear_model.Lasso entrenado.
+
+En answer-0229.py se replica exactamente la lógica del generador:
+- transformación cíclica,
+- escalado,
+- entrenamiento de Lasso(alpha=0.1),
+- cálculo de coeficientes cercanos a cero,
+- y cálculo de MAE.
+
+Sin embargo, dependiendo de cómo el validador compare las salidas, puede existir incompatibilidad si se utiliza comparación directa de objetos (==) sobre instancias sklearn.linear_model.Lasso, ya que dos modelos entrenados separadamente no necesariamente son iguales por identidad de objeto aunque tengan coeficientes y comportamiento equivalentes.
+
+Por esta razón, un posible resultado "answers incorrect" podría deberse al mecanismo de comparación del validador y no a diferencias reales en la implementación.
